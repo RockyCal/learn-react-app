@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import Note from "./Note";
+import NewNoteForm from './NewNoteForm';
 import "./App.css";
 
 const defaultNotes = [{ id: 0, text: "cats" }, { id: 1, text: "dogs" }];
@@ -28,12 +29,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <input
-          id="new-note"
-          type="text"
-          onChange={this.changeNewNoteValue.bind(this)}
-        />
-        <button onClick={this.addNote.bind(this)}>{"Add note"}</button>
+        <NewNoteForm onChange={this.changeNewNoteValue.bind(this)} onSubmit={this.addNote.bind(this)}/>
         <div className="notes-list">{notes.map(note => <Note key={note.id} text={note.text} />)}</div>
       </div>
     );

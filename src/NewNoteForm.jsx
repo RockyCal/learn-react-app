@@ -3,21 +3,28 @@ import PropTypes from "prop-types";
 
 class NewNoteForm extends Component {
   static propTypes = {
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    onSubmit: PropTypes.func
   };
 
   static defaultProps = {
-    onChange: () => {}
+    onChange: () => {},
+    onSubmit: () => {}
   };
 
   render() {
-    const { onChange } = this.props;
+    const { onChange, onSubmit } = this.props;
     return (
-      <input
-        id="new-note"
-        type="text"
-        onChange={onChange}
-      />
+      <div
+        style={{
+          padding: "20px",
+          marginBottom: "30px",
+          backgroundColor: "#CEF0A6"
+        }}
+      >
+        <input id="new-note" type="text" onChange={onChange} style={{ marginRight: "10px" }}/>
+        <button onClick={onSubmit}>{"Add note"}</button>
+      </div>
     );
   }
 }
