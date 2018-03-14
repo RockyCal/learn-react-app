@@ -7,18 +7,20 @@ import "./App.css";
 const defaultNotes = [{ id: 0, text: "cats" }, { id: 1, text: "dogs" }];
 
 class App extends Component {
-  state = { notes: defaultNotes };
+  state = { notes: defaultNotes, inputValue: '' };
 
   changeNewNoteValue(e) {
-    this.newNoteValue = e.target.value;
+    const { notes } = this.state
+    const newNoteValue = e.target.value;
+    this.setState({ notes, inputValue: newNoteValue })
   }
 
   addNote() {
-    const { notes } = this.state;
+    const { notes, inputValue } = this.state;
     const newNotes = notes.concat([
-      { id: notes.length, text: this.newNoteValue }
+      { id: notes.length, text: inputValue }
     ]);
-    this.setState({ notes: newNotes });
+    this.setState({ notes: newNotes, inputValue });
   }
 
   render() {
