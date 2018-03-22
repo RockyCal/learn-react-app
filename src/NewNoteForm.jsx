@@ -14,6 +14,7 @@ class NewNoteForm extends Component {
 
   render() {
     const { onChange, onSubmit } = this.props;
+
     return (
       <div
         style={{
@@ -22,7 +23,12 @@ class NewNoteForm extends Component {
           backgroundColor: "#CEF0A6"
         }}
       >
-        <input id="new-note" type="text" onChange={onChange} style={{ marginRight: "10px" }}/>
+        <input
+          id="new-note"
+          type="text"
+          onChange={onChange}
+          style={{ marginRight: "10px" }}
+        />
         <button onClick={onSubmit}>{"Add note"}</button>
       </div>
     );

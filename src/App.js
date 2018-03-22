@@ -10,9 +10,8 @@ class App extends Component {
   state = { notes: defaultNotes, inputValue: "" };
 
   changeNewNoteValue = (e) => {
-    const { notes } = this.state;
     const newNoteValue = e.target.value;
-    this.setState({ notes, inputValue: newNoteValue });
+    this.setState({ inputValue: newNoteValue });
   }
 
   addNote = () => {
