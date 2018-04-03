@@ -3,15 +3,17 @@ import PropTypes from "prop-types";
 
 class Note extends Component {
   static propTypes = {
+    bgColor: PropTypes.string,
     text: PropTypes.string
   };
 
   static defaultProps = {
+    bgColor: '#FFFFFF',
     text: ""
   };
 
   render() {
-    const { text } = this.props;
+    const { bgColor, text } = this.props;
     return (
       <div
         style={{
@@ -19,7 +21,8 @@ class Note extends Component {
           borderColor: "black",
           borderWidth: "1px",
           marginBottom: "10px",
-          width: "500px"
+          width: "500px",
+          backgroundColor: bgColor
         }}
       >
         <p>{text}</p>

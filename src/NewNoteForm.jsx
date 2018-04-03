@@ -2,18 +2,18 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 class NewNoteForm extends Component {
+  inputEl = "";
+
   static propTypes = {
-    onChange: PropTypes.func,
     onSubmit: PropTypes.func
   };
 
   static defaultProps = {
-    onChange: () => {},
     onSubmit: () => {}
   };
 
   render() {
-    const { onChange, onSubmit } = this.props;
+    const { onSubmit } = this.props;
 
     return (
       <div
@@ -26,10 +26,10 @@ class NewNoteForm extends Component {
         <input
           id="new-note"
           type="text"
-          onChange={onChange}
           style={{ marginRight: "10px" }}
+          ref={el => (this.inputEl = el)}
         />
-        <button onClick={onSubmit}>{"Add note"}</button>
+        <button onClick={() => onSubmit(this.inputEl.value)}>{"Add note"}</button>
       </div>
     );
   }
